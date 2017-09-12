@@ -15,10 +15,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
+require("./controllers/ordersController")(app);
+
+require("./controllers/group-api-routes.js")(app);
+require("./controllers/order-api-routes.js")(app);
+require("./controllers/order-line-api-routes.js")(app);
+require("./controllers/user-api-routes.js")(app);
 require("./controllers/htmlRoutes.js")(app);
 
-db.sequelize.sync({force : true}).then(function() {
-    app.listen(PORT, function(){
-        console.log("App listening on PORT " + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
     });
-});
+ });

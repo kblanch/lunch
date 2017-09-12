@@ -19,7 +19,13 @@ module.exports = function(sequelize, DataTypes) {
         start_time: {
             type: DataTypes.DATE
         },
-        duration: {
+        end_time: {
+            type: DataTypes.DATE
+        },
+        duration_hours: {
+            type: DataTypes.INTEGER
+        },
+        duration_minutes: {
             type: DataTypes.INTEGER
         }
     });
